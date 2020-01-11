@@ -17,7 +17,12 @@ print(img.shape)
 # COLORMAP_PINK = 10,
 # COLORMAP_HOT = 11
 
-CAM = np.random.normal(0,1,size=())
-heatmap = cv2.applyColorMap(cv2.resize(CAM,(width,height)),cv2.COLORMAP_JEF) #COLORMAP_JET
-result =heatmap*0.3+img*0.5
+
+CAM = np.random.randint(0,255,size=(334,500,3),dtype=np.uint8)
+
+# heatmap = cv2.applyColorMap(cv2.resize(CAM,(500,334)),cv2.COLORMAP_JET) #COLORMAP_JET  paper default = 2
+result = cv2.applyColorMap(img,6)
+# result =heatmap*0.3+img*0.5
 cv2.imshow('CAM.jpg',result)
+cv2.waitKey(0)
+cv2.destroyWindow()
